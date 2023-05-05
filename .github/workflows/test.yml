@@ -1,0 +1,18 @@
+name: Github Actions
+on:   
+  pull_request:
+    branches: [qc]
+
+jobs:   
+  Details: 
+    runs-on: windows-latest
+    steps: 
+      - name: Pune
+        run: |
+            echo "hello banglore"
+            echo "hello pune"
+  Edu_Details:
+    runs-on: windows-latest
+    steps:
+      - name: Education Details
+        run: echo "I have completed engg colleage.."
