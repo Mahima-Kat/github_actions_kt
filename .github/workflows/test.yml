@@ -1,7 +1,7 @@
 name: Github Actions
 on:   
   pull_request:
-    branches: [dev]
+    branches: [qc]
 
 jobs:   
   Details: 
