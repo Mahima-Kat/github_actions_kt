@@ -1,7 +1,10 @@
 name: Github Actions
-on:   
-  pull_request:
-    branches: [qc]
+on: 
+  push:
+    branches:
+      - 'dev'
+    paths:
+      - '.github/workflows/test.yml'
 
 jobs:   
   Details: 
