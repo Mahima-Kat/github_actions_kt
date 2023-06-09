@@ -3,19 +3,14 @@ on:
   push:
     branches:
       - 'dev'
-    paths-ignore:
-      - '.github/workflows/test_actions.txt'
-
 jobs:   
-  Details: 
+  running_muleJobs: 
     runs-on: windows-latest
     steps: 
-      - name: Pune
-        run: |
-            echo "hello banglore"
-            echo "hello pune"
-  Edu_Details:
+      - name: Running mulesoft jobs
+        run: echo "Running mulesoft jobs here"
+  powershell_commands:
     runs-on: windows-latest
     steps:
-      - name: Education Details
+      - name: Calling Powershell Commands
         run: echo "I have completed engg colleage.."
