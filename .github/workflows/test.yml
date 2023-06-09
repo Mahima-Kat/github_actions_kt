@@ -1,8 +1,8 @@
 name: Github Actions
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '51 7 * * 5,1'  
+  push: 
+    branches: [dev]
+  workflow_dispatch:  
 jobs:   
   running_muleJobs: 
     runs-on: windows-latest
