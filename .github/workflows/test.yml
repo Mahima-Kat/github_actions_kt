@@ -20,8 +20,13 @@ jobs:
     steps:
       - name: Calling Powershell Commands
         run: |
-             $path = "C:\Users\MKATAKWA\Documents\Files"
+             $path = "./Files"
              $Filename = Get-ChildItem $path -File -Recurse 
-             foreach($path in $Filename) {
-             Get-ChildItem -Path $Filename -Recurse | Where-Object {$_.Name -like ".txt"} | Remove-Item $Filename -Force
-             Write-Host "deleted files are $Filename" }
+             echo $Filename
+             foreach ($Filename in $path) {
+             #check if the file exists and has a .txt extension
+             if($Filename -like ".txt") {
+             #Delete the file
+             Remove-Item $Filename -Recurse -Force
+             Write-Host "Deleted file: $Filename" } 
+             }
