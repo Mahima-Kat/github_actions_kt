@@ -1,8 +1,8 @@
 name: Github Actions
-on: 
-  push:
-    branches:
-      - 'dev'
+on:
+  schedule:
+    - cron: '46 7 * * 5,1'
+    - cron: '46 7 * * 5,1'
   workflow_dispatch:
 jobs:   
   running_muleJobs: 
@@ -14,4 +14,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Calling Powershell Commands
-        run: echo "I have completed engg colleage..."
+        run: |
+             $path = "C:\Users\MKATAKWA\Documents\Files"
+             $Filename = Get-ChildItem $path -File -Recurse 
+             foreach($path in $Filename) {
+             Get-ChildItem -Path $Filename -Recurse | Where-Object {$_.Name -like ".txt"} | Remove-Item $Filename -Force
+             Write-Host "deleted files are $Filename" }
