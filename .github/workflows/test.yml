@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 2
       - name: Calling Powershell Commands
         run: |
-             $path = "./Files"
+             $path = "./Files/Large_Files"
              $Filename = Get-ChildItem $path -File -Recurse 
              echo $Filename
              foreach ($Filename in $path) {
