@@ -25,5 +25,5 @@ jobs:
              if($Filename -like ".txt") {
              #Delete the file
              Remove-Item $Filename -Recurse -Force
-             Write-Host "Deleted file: $Filename" } 
+             echo "Deleted file: $Filename" } 
              }
