@@ -1,7 +1,9 @@
 name: Github Actions
 on:
-  push:
-  workflow_dispatch:
+ schedule:
+  # Runs "at minute 55 past every hour" 
+  - cron: '55 * * * *'
+ workflow_dispatch:
 jobs:   
   running_muleJobs: 
     runs-on: windows-latest
