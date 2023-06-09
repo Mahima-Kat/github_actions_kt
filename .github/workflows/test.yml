@@ -2,15 +2,13 @@ name: Github Actions
 on:
   workflow_dispatch:
   schedule:
-    - cron: '46 7 * * 5,1'
-    - cron: '46 7 * * 5,1'
-  
+    - cron: '51 7 * * 5,1'  
 jobs:   
   running_muleJobs: 
     runs-on: windows-latest
     steps: 
       - name: Running mulesoft jobs
-        run: echo "Running mulesoft jobs here"
+        run: echo "Running mulesoft jobs here."
   powershell_commands:
     runs-on: windows-latest
     steps:
