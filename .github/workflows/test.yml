@@ -1,31 +1,22 @@
 name: Github Actions
 on:
- schedule:
-  # Runs "at minute 55 past every hour" 
-  - cron: '55 * * * *'
+ push:
  workflow_dispatch:
 jobs:   
   running_muleJobs: 
     runs-on: windows-latest
-    steps: 
-      - name: Running mulesoft jobs
-        run: echo "Running mulesoft jobs here."
-  code_checkout:
-    runs-on: windows-latest
     steps:
-      - name: code checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-      - name: Calling Powershell Commands
-        run: |
-             $path = "./Files/Large_Files"
-             $Filename = Get-ChildItem $path -File -Recurse 
-             echo $Filename
-             foreach ($Filename in $path) {
-             #check if the file exists and has a .txt extension
-             if($Filename -like ".txt") {
-             #Delete the file
-             Remove-Item $Filename -Recurse -Force }
-             echo "Deleted file: $Filename" 
-             }
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'test2.md'
+        destination_repo: 'dmnemec/release-test'
+        destination_folder: 'test-dir'
+        user_email: 'example@email.com'
+        user_name: 'dmnemec'
+        commit_message: 'A custom message for the commit'
