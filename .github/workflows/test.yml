@@ -13,8 +13,8 @@ jobs:
 
     - name: Check git commands
       run: |
-       git log -p -1 -- "./Files/Large_Files/file1.txt"
-       git --no-pager log -p -- "./Files/Large_Files/file1.txt"
-      
+       #git log -p -1 -- "./Files/Large_Files/file1.txt"
+       #git --no-pager log -p -- "./Files/Large_Files/file1.txt"
+       git log -n 1 -- "./Files/Large_Files/file1.txt" "./Files/Large_Files/file2.txt"      
     
 
