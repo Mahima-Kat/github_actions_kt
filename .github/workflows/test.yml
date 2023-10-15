@@ -12,6 +12,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Check git commands
-      run: git log -p -1 -- "./Files/Large_Files/file1.txt"
+      run: |
+       git log -p -1 -- "./Files/Large_Files/file1.txt"
+       git --no-pager log -p -- "./Files/Large_Files/file1.txt"
+      
     
 
