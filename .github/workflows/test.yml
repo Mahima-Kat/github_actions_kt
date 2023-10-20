@@ -1,8 +1,5 @@
 name: Github Actions
 on:
- push:
-     branches:
-      - dev
  workflow_dispatch:
 jobs:   
   copy-file: 
