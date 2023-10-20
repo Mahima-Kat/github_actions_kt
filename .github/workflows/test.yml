@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
 
     - name: Check git commands
       run: |
-       #git log -p -1 -- "./Files/Large_Files/file1.txt"
-       #git --no-pager log -p -- "./Files/Large_Files/file1.txt"
-       git log -n 1 -- "./Files/Large_Files/file1.txt" "./Files/Large_Files/file2.txt"      
+        changed_files=$(git diff HEAD^ HEAD --name-only)
+        echo $changed_files
     
 
