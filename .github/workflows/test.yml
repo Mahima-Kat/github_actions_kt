@@ -4,7 +4,7 @@ on:
  workflow_dispatch:
 
  schedule:
-    - cron: '56 19 * * 0,4'
+    - cron: '11 20 * * 0,4'
     - cron: '35 7 * * 0,3'
     - cron: '40 7 * * 0,3'
     - cron: '45 7 * * 0,3'
@@ -17,7 +17,7 @@ jobs:
         run: echo "Job one is running"
 
       - name: Job two is running 
-        if: github.event.schedule == '56 19 * * 0,4'
+        if: github.event.schedule == '11 20 * * 0,4'
         run: echo "Job two is running"
 
       - name: Job three is running 
