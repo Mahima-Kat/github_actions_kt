@@ -1,18 +1,30 @@
-name: Github Actions
+name: automation_schedule
+      
 on:
  workflow_dispatch:
-jobs:   
-  copy-file: 
+
+ schedule:
+    - cron: '56 19 * * 0,4'
+    - cron: '35 7 * * 0,3'
+    - cron: '40 7 * * 0,3'
+    - cron: '45 7 * * 0,3'
+    
+jobs:
+  test_schedule:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 2
+      - name: Job one is running 
+        run: echo "Job one is running"
 
-    - name: Check git commands
-      run: |
-        changed_files=$(git diff HEAD^ HEAD --name-only)
-        echo $changed_files
-    
+      - name: Job two is running 
+        if: github.event.schedule == '56 19 * * 0,4'
+        run: echo "Job two is running"
 
+      - name: Job three is running 
+        if: github.event.schedule == '40 7 * * 0,3'
+        run: echo "Job three is running"
+
+      - name: Job fourth is running 
+        if: github.event.schedule == '45 7 * * 0,3''
+        run: echo "Job fourth is running "
+        
