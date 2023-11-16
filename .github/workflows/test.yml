@@ -1,22 +1,30 @@
-name: automation_schedule
-      
+name: Four Jobs Workflow
+ 
 on:
- workflow_dispatch:
-
- schedule:
-    - cron: '14 20 * * 4'
-
-    
+  schedule:
+    - cron: '30 20 * * *'
+ 
 jobs:
-  test_schedule:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Job one is running 
-        run: echo "Job one is running"
-
-      - name: Job two is running 
-        if: github.event.schedule == '14 20 * * 4'
-        run: echo "Job two is running"
-
-
-        
+      - name: Job 1
+        run: echo "Running Job 1"
+ 
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 2
+        run: echo "Running Job 2"
+ 
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 3
+        run: echo "Running Job 3"
+ 
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 4
+        run: echo "Running Job 4"
